@@ -29,12 +29,12 @@ initiateChatBot: function ()
 
     if (messageType == '1::')
     {
-      console.info('DEBUG --> Server Connection Confirmed');
+      console.log('DEBUG --> Server Connection Confirmed');
     }
     if (messageType == '2::')
     {
       ws.send('2::');
-      console.info('DEBUG --> Ping Pong');
+      console.log('DEBUG --> Ping Pong');
     }
     if (messageType == '5:::')
     {
@@ -60,7 +60,7 @@ initiateChatBot: function ()
 
     if ((messageMethod == 'chatMsg') && (messageTimestamp >= timeAtLaunch))
     {
-    console.info(formattedDate + " Chat  --> " + messageUserName + ": " + messageText);
+    console.log(formattedDate + " Chat  --> " + messageUserName + ": " + messageText);
 
     // Chat Commands
     if (messageText == "!commands")
@@ -84,7 +84,7 @@ initiateChatBot: function ()
     }
     if ((messageMethod == 'chatLog') && (messageTimestamp >= timeAtLaunch))
     {
-      console.info(formattedDate + " Log   --> " + messageText);
+      console.log(formattedDate + " Log   --> " + messageText);
 
       if (messageText.includes(' followed') == true)
       {

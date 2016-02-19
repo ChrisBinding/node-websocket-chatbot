@@ -19,7 +19,7 @@ getServerIP: function (serveripcallback)
       {
         var data = JSON.parse(d); // Parse JSON response
         serverIP = data[0].server_ip;
-        console.info('Server IP: ' + serverIP);  // Output Server IP
+        console.log('Server IP: ' + serverIP);  // Output Server IP
         return serveripcallback();
       });
     });
@@ -44,9 +44,9 @@ getSocketID: function (socketcallback)
       res.on('data', function(d)
       {
         var socketID = d.toString().substr(0, 20);
-        console.info('Socket ID: ' + socketID);  // Output Socket ID
+        console.log('Socket ID: ' + socketID);  // Output Socket ID
         socketString = ('ws://' + serverIP + '/socket.io/1/websocket/' + socketID)
-        console.info('Socket String: ' + socketString);  // Output Socket String
+        console.log('Socket String: ' + socketString);  // Output Socket String
         return socketcallback();
       });
     });
@@ -88,7 +88,7 @@ getAuthToken: function (callback)
         {
             var authTokenJSON = JSON.parse(d);
             authToken = authTokenJSON.data.authToken;
-            console.info('AuthToken: ' + authToken);
+            console.log('AuthToken: ' + authToken);
             return callback();
         });
     });

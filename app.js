@@ -1,5 +1,5 @@
 var connection = require('./connection.js'); // Include Connection Functions
-var chatbot = require('./chatbot.js'); // Include Connection Functions
+var chatbot = require('./chatbot.js'); // Include Chatbot Functions
 //var nomo = require('node-monkey').start();  //Web Console Output
 
 connection.getAuthToken(getServerIP); // Get Auth Token - callback getServerIP
