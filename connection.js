@@ -4,7 +4,7 @@ var login = require("./login.json");  // Secure Login Details
 
 module.exports = {
 
-getServerIP: function (serveripcallback)
+getServerIP: function (callBack)
 {
     var getIPOptions =
     {
@@ -20,7 +20,7 @@ getServerIP: function (serveripcallback)
         var data = JSON.parse(d); // Parse JSON response
         serverIP = data[0].server_ip;
         console.log('Server IP: ' + serverIP);  // Output Server IP
-        return serveripcallback();
+        return callBack();
       });
     });
     getServerIP.end();
@@ -31,7 +31,7 @@ getServerIP: function (serveripcallback)
 
 }, // End getServerIP Function
 
-getSocketID: function (socketcallback)
+getSocketID: function (callBack)
 {
     var getIDOptions =
     {
@@ -47,7 +47,7 @@ getSocketID: function (socketcallback)
         console.log('Socket ID: ' + socketID);  // Output Socket ID
         socketString = ('ws://' + serverIP + '/socket.io/1/websocket/' + socketID)
         console.log('Socket String: ' + socketString);  // Output Socket String
-        return socketcallback();
+        return callBack();
       });
     });
     getSocketID.end();
@@ -57,7 +57,7 @@ getSocketID: function (socketcallback)
     });
 },   // getSocketID Function End
 
-getAuthToken: function (callback)
+getAuthToken: function (callBack)
 {
     // Login Details from login.json
     loginDetails = JSON.stringify(login);
@@ -89,7 +89,7 @@ getAuthToken: function (callback)
             var authTokenJSON = JSON.parse(d);
             authToken = authTokenJSON.data.authToken;
             console.log('AuthToken: ' + authToken);
-            return callback();
+            return callBack();
         });
     });
 

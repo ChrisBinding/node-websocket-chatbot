@@ -1,11 +1,15 @@
 var WebSocket = require('ws');  // WebSocket Package
 var dateFormat = require('dateformat'); // DateFormat Package
+var chatCommands = require('./chatCommands.json') // Import chat commands from JSON
+var fs = require("fs"); // File System Access
 
 module.exports = {
 
 initiateChatBot: function ()
 {
   const timeAtLaunch = Date.now();  // Constant for time at launch (For Old Message Prevention)
+
+  botDisable = false; // Bot enabled variable
 
   var join_msg = ("5:::{\"name\":\"message\",\"args\":[{\"method\":\"joinChannel\",\"params\":{\"channel\":\"" + botChannel +"\",\"name\":\""+ botLogin +"\",\"token\":\"" + authToken + "\",\"isAdmin\":false}}]}");
 
@@ -30,6 +34,10 @@ initiateChatBot: function ()
     if (messageType == '1::')
     {
       console.log('DEBUG --> Server Connection Confirmed');
+      setTimeout(function()
+      {
+        hitbox_send_message("Drongo Drongo Drongo - Bot Connected");
+      }, 500);
     }
     if (messageType == '2::')
     {
@@ -56,31 +64,59 @@ initiateChatBot: function ()
         var formattedDate = dateFormat(date, "dd/mm/yyyy HH:MM:ss");
       }
     }
-
-
+    // Enable / Disable Bot Via Chat
     if ((messageMethod == 'chatMsg') && (messageTimestamp >= timeAtLaunch))
     {
-    console.log(formattedDate + " Chat  --> " + messageUserName + ": " + messageText);
+      if (messageText == "!disablebot")
+      {
+        botDisable = true;
+        hitbox_send_message('BOT DISABLED');
+      }
+      else if (messageText == "!enablebot")
+      {
+        botDisable = false;
+        hitbox_send_message('BOT ENABLED');
+      }
+    }
+    if ((messageMethod == 'chatMsg') && (messageTimestamp >= timeAtLaunch) && (botDisable == false))
+    {
+      console.log(formattedDate + " Chat  --> " + messageUserName + ": " + messageText);
 
-    // Chat Commands
-    if (messageText == "!commands")
-    {
-      hitbox_send_message('Command List: !decklist | !nips | !drongo');
-    }
-    if (messageText == "!drongo")
-    {
-      hitbox_send_message('Did someone call?');
-    }
-    if (messageText == "!decklist")
-    {
-      var deckListURL = "https://gyazo.com/17fad4f82b409074dd08c6bcb501c495";
-      hitbox_send_message('Decklist --> ' + deckListURL);
-    }
-    if (messageText == "!nips")
-    {
-      var nipsURL = "https://i.gyazo.com/71cfb92a271f615b20d938cdbf5c6b40.png";
-      hitbox_send_message('Oh You Want Some Nips?' + nipsURL);
-    }
+      // ****************  CHAT COMMANDS  ***************************************
+
+      if (messageText.includes("!setcommand"))
+      {
+        var command = messageText.substring(12,(messageText.lastIndexOf(":::")));
+        var commandOutput = messageText.substring(messageText.lastIndexOf(":::")+3);
+        chatCommands.chatCommand1 = command;
+        chatCommands.chatCommandOutput1 = commandOutput;
+        fs.writeFileSync("./chatCommands.json", JSON.stringify(chatCommands));
+        hitbox_send_message("New Command '" + command + "' added with output '" + commandOutput + "'");
+      }
+      if (messageText == "!commands")
+      {
+        hitbox_send_message('Command List: !decklist | !nips | !drongo');
+      }
+      if (messageText == chatCommands.chatCommand1)
+      {
+        hitbox_send_message(chatCommands.chatCommandOutput1);
+      }
+      if (messageText == chatCommands.chatCommand2)
+      {
+        hitbox_send_message(chatCommands.chatCommandOutput2);
+      }
+      if (messageText == chatCommands.chatCommand3)
+      {
+        hitbox_send_message(chatCommands.chatCommandOutput3);
+      }
+      if (messageText == chatCommands.chatCommand4)
+      {
+        hitbox_send_message(chatCommands.chatCommandOutput4);
+      }
+      if (messageText == chatCommands.chatCommand5)
+      {
+        hitbox_send_message(chatCommands.chatCommandOutput5);
+      }
     }
     if ((messageMethod == 'chatLog') && (messageTimestamp >= timeAtLaunch))
     {
