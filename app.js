@@ -2,25 +2,16 @@ var connection = require('./connection.js'); // Include Connection Functions
 var chatbot = require('./chatbot.js'); // Include Chatbot Functions
 //var nomo = require('node-monkey').start();  //Web Console Output
 
-  function getAuthToken (callBack)
+  function start ()
   {
-    connection.getAuthToken(getServerIP); // Get Auth Token - callback getServerIP
+    connection.getAuthToken(function (getServerIP){
+      connection.getServerIP(function (getSocketID){
+        connection.getSocketID(function (initiateChatBot){
+            console.log("");
+            chatbot.initiateChatBot();
+        });
+      });
+    });
   }
 
-  function getServerIP (callBack)
-  {
-    connection.getServerIP(getSocketString);  // Get Server IP - callback getSocketString
-  }
-
-  function getSocketString (callBack)
-  {
-    connection.getSocketID(initiateChatBot);  // Get Socket URL - callback initiateChatBot
-  }
-
-  function initiateChatBot (callBack)
-  {
-    console.log("");  // Console Line Space
-    chatbot.initiateChatBot();    // Start the websocket chat bot
-  }
-
-  getAuthToken(); // Call to first function -> Starting the program
+  start(); // Call to first function -> Starting the
