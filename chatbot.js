@@ -7,6 +7,9 @@ module.exports = {
 
 initiateChatBot: function ()
 {
+
+  botDisable = false;
+
   const timeAtLaunch = Date.now();  // Constant for time at launch (For Old Message Prevention)
 
   var join_msg = ("5:::{\"name\":\"message\",\"args\":[{\"method\":\"joinChannel\",\"params\":{\"channel\":\"" + botChannel +"\",\"name\":\""+ botLogin +"\",\"token\":\"" + authToken + "\",\"isAdmin\":false}}]}");
@@ -16,7 +19,7 @@ initiateChatBot: function ()
     ws.send("5:::{\"name\":\"message\",\"args\":[{\"method\":\"chatMsg\",\"params\":{\"channel\":\"" + botChannel +"\",\"name\":\""+ botLogin +"\",\"nameColor\":\"FA5858\",\"text\":\""+ message +"\"}}]}")
   }
 
-  var ws = new WebSocket(socketString);
+  ws = new WebSocket(socketString);
 
   ws.on('open', function open()
   {
@@ -138,5 +141,10 @@ initiateChatBot: function ()
       hitbox_send_message('Thanks for subscribing ' + username + ' !')
     }
   });
-} //websocket function end
+}, //websocket function end
+
+sendMessage : function(message)
+{
+  ws.send("5:::{\"name\":\"message\",\"args\":[{\"method\":\"chatMsg\",\"params\":{\"channel\":\"" + botChannel +"\",\"name\":\""+ botLogin +"\",\"nameColor\":\"FA5858\",\"text\":\""+ message +"\"}}]}")
+}
 }; //module exports end

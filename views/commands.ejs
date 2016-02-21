@@ -17,8 +17,8 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="./">Home</a></li>
-            <li><a href="./commands">Chat Commands</a></li>
+            <li><a href="./">Home</a></li>
+            <li class="active"><a href="./commands">Chat Commands</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -27,15 +27,28 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>DrongoBOT Test UI</h1>
-        <p class="lead">Test</p>
+        <h1><%= title %></h1>
+        <p class="lead"><%= infoMsg %></p>
 
+        <!--  FORM TO EDIT CHAT COMMANDS  -->
         <form action="/commands" method="post">
         <div class="input-group">
           <div class="col-xs-10">
           <span class="input-group-addon" id="basic-addon1">Command 1</span>
-          <input type="text" id="command1" name="command1" class="form-control" placeholder="<%= command1 %>" aria-describedby="basic-addon1">
-          <input type="text" class="form-control" placeholder="<%= command1Output %>" aria-describedby="basic-addon1">
+          <input type="text" id="command1" name="command1" class="form-control" value="<%= command1 %>" aria-describedby="basic-addon1">
+          <input type="text" id="command1Output" name="command1Output" class="form-control" value="<%= command1Output %>" aria-describedby="basic-addon1">
+          <span class="input-group-addon" id="basic-addon1">Command 2</span>
+          <input type="text" id="command2" name="command2" class="form-control" value="<%= command2 %>" aria-describedby="basic-addon1">
+          <input type="text" id="command2Output" name="command2Output" class="form-control" value="<%= command2Output %>" aria-describedby="basic-addon1">
+          <span class="input-group-addon" id="basic-addon1">Command 3</span>
+          <input type="text" id="command3" name="command3" class="form-control" value="<%= command3 %>" aria-describedby="basic-addon1">
+          <input type="text" id="command3Output" name="command3Output" class="form-control" value="<%= command3Output %>" aria-describedby="basic-addon1">
+          <span class="input-group-addon" id="basic-addon1">Command 4</span>
+          <input type="text" id="command4" name="command4" class="form-control" value="<%= command4 %>" aria-describedby="basic-addon1">
+          <input type="text" id="command4Output" name="command4Output" class="form-control" value="<%= command4Output %>" aria-describedby="basic-addon1">
+          <span class="input-group-addon" id="basic-addon1">Command 5</span>
+          <input type="text" id="command5" name="command5" class="form-control" value="<%= command5 %>" aria-describedby="basic-addon1">
+          <input type="text" id="command5Output" name="command5Output" class="form-control" value="<%= command5Output %>" aria-describedby="basic-addon1">
           <button type="submit" id="poke" class="btn btn-success">Save Changes</button>
           </form>
         </div>
