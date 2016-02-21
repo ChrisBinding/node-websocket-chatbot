@@ -1,1 +1,1 @@
-{"chatCommand1":"!drongo","chatCommand2":"!drongo1","chatCommand3":"!test3","chatCommand4":"!test4","chatCommand5":"!test5","chatCommandOutput2":"Hey Drongo 1","chatCommandOutput3":"Test 3","chatCommandOutput4":"Test 4","chatCommandOutput5":"Test 5","chatCommandOutput1":"Hey Drongo"}
+{"chatCommand":[{"command":"!test1","commandOutput":"Hype"},{"command":"!test2","commandOutput":"Test Output 2"},{"command":"!test3","commandOutput":"Test Output 3"},{"command":"!test4","commandOutput":"Test Output 4"},{"command":"!test5","commandOutput":"Test Output 5"}]}

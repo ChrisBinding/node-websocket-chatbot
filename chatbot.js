@@ -98,25 +98,25 @@ initiateChatBot: function ()
       {
         hitbox_send_message('Command List: !decklist | !nips | !drongo');
       }
-      if (messageText == chatCommands.chatCommand1)
+      if (messageText == chatCommands.chatCommand[0].command)
       {
-        hitbox_send_message(chatCommands.chatCommandOutput1);
+        hitbox_send_message(chatCommands.chatCommand[0].commandOutput);
       }
-      if (messageText == chatCommands.chatCommand2)
+      if (messageText == chatCommands.chatCommand[1].command)
       {
-        hitbox_send_message(chatCommands.chatCommandOutput2);
+        hitbox_send_message(chatCommands.chatCommand[1].commandOutput);
       }
-      if (messageText == chatCommands.chatCommand3)
+      if (messageText == chatCommands.chatCommand[2].command)
       {
-        hitbox_send_message(chatCommands.chatCommandOutput3);
+        hitbox_send_message(chatCommands.chatCommand[2].commandOutput);
       }
-      if (messageText == chatCommands.chatCommand4)
+      if (messageText == chatCommands.chatCommand[3].command)
       {
-        hitbox_send_message(chatCommands.chatCommandOutput4);
+        hitbox_send_message(chatCommands.chatCommand[3].commandOutput);
       }
-      if (messageText == chatCommands.chatCommand5)
+      if (messageText == chatCommands.chatCommand[4].command)
       {
-        hitbox_send_message(chatCommands.chatCommandOutput5);
+        hitbox_send_message(chatCommands.chatCommand[4].commandOutput);
       }
     }
     if ((messageMethod == 'chatLog') && (messageTimestamp >= timeAtLaunch))
