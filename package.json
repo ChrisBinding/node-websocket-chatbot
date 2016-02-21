@@ -1,17 +1,19 @@
 {
-  "name": "node-test",
+  "name": "node-websocket-chatbot",
   "version": "1.0.0",
-  "description": "",
+  "description": "A node.js based websocket chatbot for the streaming website Hitbox.tv",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Chris Binding",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "dateformat": "^1.0.12",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
+    "socket.io": "^1.4.5",
     "ws": "^1.0.1"
   }
 }
