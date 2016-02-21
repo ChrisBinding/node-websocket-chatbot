@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <% include partials\head.ejs %>
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="./">Home</a></li>
+            <li><a href="./commands">Chat Commands</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>DrongoBOT Test UI</h1>
+        <p class="lead">Test</p>
+
+        <form action="/commands" method="post">
+        <div class="input-group">
+          <div class="col-xs-10">
+          <span class="input-group-addon" id="basic-addon1">Command 1</span>
+          <input type="text" id="command1" name="command1" class="form-control" placeholder="<%= command1 %>" aria-describedby="basic-addon1">
+          <input type="text" class="form-control" placeholder="<%= command1Output %>" aria-describedby="basic-addon1">
+          <button type="submit" id="poke" class="btn btn-success">Save Changes</button>
+          </form>
+        </div>
+      </div>
+
+      </div>
+
+    </div><!-- /.container -->
+
+    <% include partials\jsincludes.ejs %>
+  </body>
+</html>

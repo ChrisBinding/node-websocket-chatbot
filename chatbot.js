@@ -9,8 +9,6 @@ initiateChatBot: function ()
 {
   const timeAtLaunch = Date.now();  // Constant for time at launch (For Old Message Prevention)
 
-  botDisable = false; // Bot enabled variable
-
   var join_msg = ("5:::{\"name\":\"message\",\"args\":[{\"method\":\"joinChannel\",\"params\":{\"channel\":\"" + botChannel +"\",\"name\":\""+ botLogin +"\",\"token\":\"" + authToken + "\",\"isAdmin\":false}}]}");
 
   function hitbox_send_message(message)
