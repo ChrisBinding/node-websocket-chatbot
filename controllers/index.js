@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var chat = require('../login.json') // Import chatID from JSON
+var chat = require('../core/login.json') // Import chatID from JSON
 
 router.use('/commands', require('./commands'));
 // router.use('/users', require('./users'))

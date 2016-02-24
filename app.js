@@ -17,8 +17,8 @@ app.listen(port, function() {
   console.log('Listening on port ' + port)
 })
 
-var connection = require('./connection.js'); // Include Connection Functions
-var chatbot = require('./chatbot.js'); // Include Chatbot Functions
+var connection = require('./core/connection.js'); // Include Connection Functions
+var chatbot = require('./core/chatbot.js'); // Include Chatbot Functions
 
 
 // // WebSocket Button Message

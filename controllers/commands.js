@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var chatCommand = require('../models/command')
 
-var chatCommands = require('../chatCommands.json') // Import chat commands from JSON
+var chatCommands = require('../core/chatCommands.json') // Import chat commands from JSON
 var fs = require("fs"); // File System Access
 
 
@@ -23,10 +22,6 @@ router.get('/', function (req, res) {
                         command4Output: chatCommands.chatCommand[3].commandOutput,
                         command5Output: chatCommands.chatCommand[4].commandOutput
 });
-  //   chatCommand.get('1', function (commandOutput) {
-  //   console.log(command);
-  //   console.log(commandOutput);
-  // })
 });
 
 // RELOAD OF COMMANDS PAGE AFTER CHANGES SAVED
@@ -43,7 +38,7 @@ router.post('/', function(req, res) {
   chatCommands.chatCommand[2].commandOutput = req.body.command3Output;
   chatCommands.chatCommand[3].commandOutput = req.body.command4Output;
   chatCommands.chatCommand[4].commandOutput = req.body.command5Output;
-  fs.writeFileSync("./chatCommands.json", JSON.stringify(chatCommands));
+  fs.writeFileSync("./core/chatCommands.json", JSON.stringify(chatCommands));
 
   res.render('commands', {
                         // EJS VARIABLES TO PASS TO COMMANDS PAGE
