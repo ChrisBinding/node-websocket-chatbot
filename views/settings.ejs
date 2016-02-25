@@ -32,7 +32,7 @@
         <p class="lead"><%= infoMsg %></p>
 
         <!--  FORM TO EDIT CHAT COMMANDS  -->
-        <form action="/commands" method="post">
+        <form action="/settings" method="post">
         <div class="input-group">
           <div class="col-xs-10">
           <span class="input-group-addon" id="basic-addon1">Bot Login</span>
@@ -41,7 +41,7 @@
           <input type="password" id="password" name="password" class="form-control" value="<%= password %>" aria-describedby="basic-addon1">
           <span class="input-group-addon" id="basic-addon1">Channel To Mod</span>
           <input type="text" id="channel" name="channel" class="form-control" value="<%= channel %>" aria-describedby="basic-addon1">
-          <button type="submit" id="poke" class="btn btn-success">Save</button>
+          <button type="submit" id="poke" class="btn btn-success">Save and Connect Bot</button>
           </form>
         </div>
       </div>

@@ -17,8 +17,7 @@ app.listen(port, function() {
   console.log('Listening on port ' + port)
 })
 
-var connection = require('./core/connection.js'); // Include Connection Functions
-var chatbot = require('./core/chatbot.js'); // Include Chatbot Functions
+
 
 
 // // WebSocket Button Message
@@ -30,17 +29,3 @@ var chatbot = require('./core/chatbot.js'); // Include Chatbot Functions
 //         chatbot.sendMessage(test);
 //       });
 // });
-
-  function start ()
-  {
-    connection.getAuthToken(function (getServerIP){
-      connection.getServerIP(function (getSocketID){
-        connection.getSocketID(function (initiateChatBot){
-              console.log("");
-              chatbot.initiateChatBot("123");
-        });
-      });
-    });
-  }
-
-  start(); // Call to first function -> Starting the

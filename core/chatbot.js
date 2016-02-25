@@ -27,6 +27,12 @@ initiateChatBot: function ()
     console.log('DEBUG --> WEBSOCKET OPEN');
   });
 
+  ws.on('close', function close() {
+  console.log('DEBUG --> WEBSOCKET CLOSED');
+  });
+
+  //ws.close();
+
   ws.on('message', function(data, flags)
   {
     var messageString = data;
